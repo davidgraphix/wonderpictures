@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Keyframes (declared here so they're always included) ── */
+@keyframes tickerLTR {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@layer base {
+  :root {
+    --font-cormorant: "Cormorant Garamond", serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+    --font-dm-mono: "DM Mono", monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-obsidian text-ivory;
+    font-family: var(--font-dm-sans);
+    overflow-x: hidden;
+  }
+
+  /* Minimal scrollbar */
+  ::-webkit-scrollbar { width: 2px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C4A265; border-radius: 9999px; }
+
+  /* Selection */
+  ::selection {
+    background: rgba(196, 162, 101, 0.25);
+    color: #F0EBE3;
+  }
+}
+
+@layer utilities {
+  /* Film grain overlay — applied via pseudo on a wrapper div */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  /* Cinematic display text */
+  .text-display {
+    font-family: var(--font-cormorant);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  /* Gold underline accent */
+  .gold-line {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #C4A265;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Soft gradient fade for video sections */
+  .fade-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, #080808);
+    pointer-events: none;
+  }
+
+  .fade-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, transparent, #080808);
+    pointer-events: none;
+  }
+
+  /* Border glass card */
+  .card-cinematic {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.4s ease;
+  }
+  .card-cinematic:hover {
+    border-color: rgba(196, 162, 101, 0.3);
+  }
+
+  /* Smooth button base */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-gold text-obsidian text-xs font-sans font-medium tracking-widest2 uppercase px-8 py-4 transition-all duration-300;
+  }
+  .btn-gold:hover {
+    @apply bg-gold-light;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 border border-ivory/20 text-ivory text-xs font-sans font-medium tracking-widest2 uppercase px-8 py-4 transition-all duration-300;
+  }
+  .btn-ghost:hover {
+    @apply border-gold/60 text-gold;
+  }
+
+  /* Form inputs */
+  .field-input {
+    @apply w-full bg-steel border border-whisper/50 text-ivory text-sm font-sans px-4 py-3.5
+           focus:outline-none focus:border-gold/50 transition-colors duration-200 placeholder:text-muted/50;
+  }
+  .field-input:focus {
+    @apply bg-carbon;
+  }
+  option {
+    background: #1E1E1E;
+    color: #F0EBE3;
+  }
+}
