@@ -9,6 +9,7 @@ interface Props {
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
   once?: boolean;
+   id?: string;
 }
 
 export default function AnimatedSection({
@@ -17,6 +18,7 @@ export default function AnimatedSection({
   delay = 0,
   direction = "up",
   once = true,
+  id,
 }: Props) {
   const prefersReduced = useReducedMotion();
 
@@ -39,6 +41,7 @@ export default function AnimatedSection({
 
   return (
     <motion.div
+    id={id}
       className={className}
       initial={initial}
       whileInView={animate}
