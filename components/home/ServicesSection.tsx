@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const services = [
   {
     title: "Video Editing",
-    text: "Professional editing for creators, brands, churches, events, and businesses. From raw footage to clean cinematic stories.",
+    text: "Professional editing for creators, brands, events, and businesses. From raw footage to clean cinematic stories.",
   },
   {
     title: "Wedding Films",

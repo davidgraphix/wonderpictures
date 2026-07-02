@@ -46,7 +46,7 @@ export const projects: Project[] = [
     location: "Lagos, Nigeria",
     youtubeId: "sqFskhIfA6E",
     featured: true,
-    tagline: "Visual storytelling for creators, brands, churches, and businesses.",
+    tagline: "Visual storytelling for creators, brands, events, and businesses.",
   },
   {
     id: "film-four",

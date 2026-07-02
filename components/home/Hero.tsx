@@ -76,7 +76,7 @@ export default function Hero() {
             }}
             className="mt-8 max-w-lg text-sm leading-7 text-white/70 md:text-base"
           >
-          Cinematic videography and professional editing for weddings, brands, creators, churches, and unforgettable moments.
+          Cinematic videography and professional editing for weddings, brands, creators, events, and unforgettable moments.
           </motion.p>
 
           <motion.div
