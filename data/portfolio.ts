@@ -58,6 +58,16 @@ export const projects: Project[] = [
     featured: true,
     tagline: "Clean cuts, cinematic pacing, colour, sound, and emotion.",
   },
+  {
+      id: "film-four",
+    title: "Documentry Story",
+    category: "Documentary",
+    year: 2026,
+    location: "Lagos, Nigeria",
+    youtubeId: "YtwpcI4GR_I&t",
+    featured: true,
+    tagline: "Clean cuts, cinematic pacing, colour, sound, and emotion.",
+  },
 ];
 
 export const categories: Category[] = [

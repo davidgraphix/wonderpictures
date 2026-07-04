@@ -18,7 +18,7 @@ const steps = [
     icon: Scissors,
     number: "Step 03",
     title: "Edit",
-    text: "We craft your story with rhythm, colour, sound, and emotion.",
+    text: "We refine your story with precision blending rhythm, high-end colour grading, sound design, and emotion.",
   },
   {
     icon: Send,

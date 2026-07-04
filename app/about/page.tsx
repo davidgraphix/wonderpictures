@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const AWARDS = [
-  { title: "Vimeo Staff Pick", year: "2024" },
-  { title: "Wedding Film Award — Best Cinematography", year: "2024" },
-  { title: "Cannes Corporate Media — Silver", year: "2023" },
-  { title: "One Eye Land — Top 50 Videographers", year: "2023" },
+  { title: "AFRIFF AWARD NOMINATION — (Best documentary)", year: "2025" },
+  { title: "REFTA AWARD NOMINATION — (Best documentary)", year: "2025" },
+  { title: "ATEKER INTERNATIONAL FILM FESTIVAL OFFICIAL SELECTION", year: "2025" },
+  { title: "AMVCA — (Best documentary)", year: "2026" },
 ];
 
 export default function AboutPage() {
@@ -38,11 +38,6 @@ export default function AboutPage() {
       {/* Split: photo + bio */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-28 grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-16 items-start">
         <AnimatedSection>
-          {/*
-           * REPLACE: Swap video with a portrait photo using next/image,
-           * or keep as a cinematic portrait video.
-           * Path: /videos/portrait.mp4 or /images/director.jpg
-           */}
           <div className="relative aspect-[3/4] overflow-hidden">
             <VideoBlock
               src="/videos/portrait.mp4"
@@ -57,35 +52,24 @@ export default function AboutPage() {
         <div className="lg:pt-10 space-y-8">
           <AnimatedSection>
             <h2 className="font-display font-light text-ivory text-5xl md:text-6xl">
-              {/* REPLACE: director's actual name */}
-              David Thompson
+              OLANIYI IYANUOLUWA
             </h2>
             <p className="text-[10px] font-mono tracking-widest2 text-gold uppercase mt-3">
-              Director & Cinematographer
+              Cinematographer and Editor
             </p>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className="space-y-5">
             <p className="text-muted text-sm leading-7">
-              I grew up watching films not for their plots but for the way light fell on a
-              face in a quiet moment — that precise second when everything felt suspended
-              and entirely true. That's still what drives every frame I make.
-            </p>
-            <p className="text-muted text-sm leading-7">
-              After training in cinematography in London and working across documentary
-              and commercial production for nearly a decade, I founded DT Films to work
-              more intentionally — fewer projects, deeper partnerships, and films that
-              outlast the events that inspired them.
-            </p>
-            <p className="text-muted text-sm leading-7">
-              My work spans 18 countries. The one constant: a commitment to finding the
-              authentic human moment inside whatever is happening in front of the lens.
+              I founded Wonder Pictures to bridge the gap between technical precision and raw human experience.
+              We take on select projects to ensure every frame whether
+              for a global brand or a private celebration receives the focus and high-end craft it deserves.
             </p>
           </AnimatedSection>
 
           {/* Signature — REPLACE with actual scanned signature image */}
           <AnimatedSection delay={0.2}>
-            <p className="font-display italic text-3xl text-muted mt-6">David T.</p>
+            <p className="font-display italic text-3xl text-muted mt-6">— Olaniyi Iyanuoluwa.</p>
           </AnimatedSection>
 
           {/* Awards */}
@@ -123,7 +107,7 @@ export default function AboutPage() {
               "A film is a document of what people feel, not just what they do. My job is
               to be close enough to catch it, and quiet enough not to disturb it."
             </blockquote>
-            <p className="font-display italic text-muted text-2xl mt-8">— David T.</p>
+            <p className="font-display italic text-muted text-2xl mt-8">— Olaniyi Iyanuoluwa.</p>
           </AnimatedSection>
         </div>
       </section>

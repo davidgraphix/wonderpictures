@@ -24,30 +24,9 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-black/15" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/65" />
 
-      {/* Side Counter */}
-      {/* <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-4 lg:flex">
-        <span className="text-[10px] font-semibold text-white/70">01</span>
-        <div className="h-20 w-px bg-gradient-to-b from-[#d6ad61] to-white/15" />
-        <div className="flex flex-col gap-3">
-          <span className="h-1 w-1 rounded-full bg-[#d6ad61]" />
-          <span className="h-1 w-1 rounded-full bg-white/35" />
-          <span className="h-1 w-1 rounded-full bg-white/35" />
-        </div>
-        <div className="h-20 w-px bg-white/15" />
-        <span className="text-[10px] font-semibold text-white/70">05</span>
-      </div> */}
-
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 pt-28 md:px-10 lg:px-20">
         <div className="max-w-4xl">
-          {/* <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-7 text-[10px] font-bold uppercase tracking-[0.45em] text-[#d6ad61]"
-          >
-            Cinematic Videography
-          </motion.p> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 34 }}
@@ -57,13 +36,13 @@ export default function Hero() {
               delay: 0.15,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="max-w-4xl font-serif text-[3.8rem] font-light leading-[0.9] tracking-[-0.06em] text-[#f5efe4] sm:text-[4.3rem] md:text-[5.8rem] lg:text-[6.8rem]"
+            className="max-w-4xl font-serif text-[3.8rem] font-light leading-[0.9] tracking-[-0.06em] text-[#f5efe4] sm:text-[4.3rem] md:text-[5.8rem] lg:text-[6.5rem]"
           >
-            We Don&apos;t Just
+            Cinematic Storytelling
             <br />
-            Capture Moments,
+            for the Moments
             <br />
-            <span className="text-[#d6ad61]">We Tell Stories.</span>
+            <span className="text-[#d6ad61]">That Matter Most.</span>
           </motion.h1>
 
           <motion.p
@@ -76,7 +55,7 @@ export default function Hero() {
             }}
             className="mt-8 max-w-lg text-sm leading-7 text-white/70 md:text-base"
           >
-          Cinematic videography and professional editing for weddings, brands, creators, events, and unforgettable moments.
+          High-end videography and expert post-production for brands, creators, and unforgettable events. We craft visuals with rhythm, emotion, and precision.
           </motion.p>
 
           <motion.div

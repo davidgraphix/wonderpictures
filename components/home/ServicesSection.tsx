@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const services = [
   {
     title: "Video Editing",
-    text: "Professional editing for creators, brands, events, and businesses. From raw footage to clean cinematic stories.",
+    text: "Expert post-production for creators, brands, and agencies. transforming raw footage into polished content with high-end colour grading and sound design.",
   },
   {
     title: "Wedding Films",
@@ -16,7 +16,7 @@ const services = [
   },
   {
     title: "Brand & Commercial",
-    text: "High-quality videos that elevate your brand and connect with your audience.",
+    text: "Cinematic brand films that demand attention. We produce high-value visuals that elevate your market positioning and connect deeply with your audience.",
   },
   {
     title: "Music Videos",
