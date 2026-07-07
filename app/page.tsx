@@ -7,11 +7,13 @@ import ServicesSection from "@/components/home/ServicesSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import Testimonials from "@/components/home/Testimonials";
 import BookingCTA from "@/components/home/BookingCTA";
+import BrandsSection from "@/components/home/BrandsSection";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <BrandsSection />
       <FeaturedFilms />
       <FilmTicker />
       {/* <Storytelling /> */}
