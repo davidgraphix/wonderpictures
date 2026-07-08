@@ -22,9 +22,9 @@ const brands = [
   "uba.png",
   "enya.png",
   "dangote.jpg",
-  "smlxy-fashion.png",
+//   "smlxy-fashion.png",
   "spotify.jpg",
-  "lagos-state.png",
+//   "lagos-state.png",
   "paystack.jpg",
 ];
 
