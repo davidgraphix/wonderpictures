@@ -1,22 +1,18 @@
 "use client";
 
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import YouTubeVideo from "@/components/ui/YouTubeVideo";
+import { cinematicReelVideoId, getProject } from "@/data/portfolio";
+import { youtubeWatchUrl } from "@/lib/youtube";
 
 export default function CinematicReel() {
-  const videoId = "UnPtJg9d_lM";
+  const videoId = cinematicReelVideoId;
+  const title = getProject(videoId)?.title ?? "Wonder Pictures Showreel";
 
   return (
     <section className="relative h-[600px] overflow-hidden bg-black md:h-[750px]">
       {/* Background YouTube Video */}
-      <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          title="Wonder Pictures Showreel"
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1`}
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-          className="absolute left-1/2 top-1/2 h-[130%] w-[230%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        />
-      </div>
+      <YouTubeVideo videoId={videoId} title={title} />
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/65" />
@@ -43,7 +39,7 @@ export default function CinematicReel() {
             </p>
 
             <a
-              href="https://youtu.be/UnPtJg9d_lM"
+              href={youtubeWatchUrl(videoId)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-10 inline-flex items-center gap-3 border border-[#d6ad61] bg-[#d6ad61] px-8 py-4 text-[10px] font-bold uppercase tracking-[0.35em] text-black transition duration-300 hover:bg-white"
