@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import FilmTicker from "@/components/ui/FilmTicker";
-import VideoBlock from "@/components/ui/VideoBlock";
 import BookingCTA from "@/components/home/BookingCTA";
 
 export const metadata: Metadata = {
@@ -67,11 +67,13 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-28 grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-16 items-start">
         <AnimatedSection>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <VideoBlock
-              src="/videos/portrait.mp4"
-              poster="/images/director-poster.jpg"
-              className="absolute inset-0 w-full h-full"
-              objectFit="cover"
+            <Image
+              src="/images/about-portrait.jpg"
+              alt="Portrait of Olaniyi Iyanuoluwa"
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 to-transparent" />
           </div>
