@@ -3,26 +3,24 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaVimeoV } from "react-icons/fa";
+import YouTubeVideo from "@/components/ui/YouTubeVideo";
+import { getProject, heroBackground } from "@/data/portfolio";
 
 export default function Hero() {
+  const project = getProject(heroBackground.youtubeId);
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/hero.mp4"
-        poster="/images/hero-poster.jpg"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+      {/* Background YouTube Video (poster shows until playback is confirmed) */}
+      <YouTubeVideo
+        videoId={heroBackground.youtubeId}
+        title={project?.title ?? "Wonder Pictures showreel"}
       />
 
-      {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-black/45" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-black/15" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/65" />
+      {/* Cinematic Overlays (keep the copy readable over the moving footage) */}
+      <div className="pointer-events-none absolute inset-0 bg-black/45" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60" />
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 pt-28 md:px-10 lg:px-20">

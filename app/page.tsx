@@ -13,11 +13,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <CinematicReel />
       <BrandsSection />
       <FeaturedFilms />
       <FilmTicker />
       {/* <Storytelling /> */}
+      <CinematicReel />
       <FilmTicker reverse speed="fast" />
       <ServicesSection />
       <ProcessSection />
