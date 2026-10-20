@@ -22,8 +22,7 @@ export interface Project {
   title: string;
   /** Optional cleaner label for the modal heading; never replaces `title` as the record of truth. */
   displayTitle?: string;
-  /** Omitted only while unconfirmed; such videos appear under "All" but no category filter. */
-  category?: Category;
+  category: Category;
   year?: number;
   location?: string;
   /** Bare 11-character YouTube video ID (no URL, no query params). */
@@ -278,7 +277,7 @@ export const projects: Project[] = [
   {
     id: "zero-malaria-world-malaria-day-2025",
     title: "Change The Story on World Malaria Day 2025",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Documentary",
     youtubeId: "B5rBrHWFJa0",
     channel: "Zero Malaria Starts with Me",
     featured: false,
@@ -286,7 +285,7 @@ export const projects: Project[] = [
   {
     id: "fog-original",
     title: "FOG ORIGINAL",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Brand",
     youtubeId: "xlULLUye5I0",
     channel: "Wonder",
     featured: false,
@@ -294,7 +293,7 @@ export const projects: Project[] = [
   {
     id: "sonmadeit",
     title: "SONMADEIT",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Brand",
     youtubeId: "hgBFzxRPd_4",
     channel: "Wonder",
     featured: false,
@@ -310,7 +309,7 @@ export const projects: Project[] = [
   {
     id: "bts-with-pst-iren",
     title: "BTS WITH PST IREN",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Documentary",
     youtubeId: "gw-EuCuehMk",
     channel: "Wonder",
     featured: false,
@@ -326,7 +325,7 @@ export const projects: Project[] = [
   {
     id: "interface-africa",
     title: "interface africa",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Brand",
     youtubeId: "O1bVO69DVMQ",
     channel: "Wonder",
     featured: false,
@@ -358,7 +357,7 @@ export const projects: Project[] = [
   {
     id: "shoot-edit-repeat-7-day-5",
     title: "SHOOT EDIT REPEAT 7 [DAY 5]",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Documentary",
     youtubeId: "nU3ijgOjp88",
     channel: "Wonder",
     featured: false,
@@ -366,7 +365,7 @@ export const projects: Project[] = [
   {
     id: "jollof-and-tea",
     title: "Jollof and Tea",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Brand",
     youtubeId: "f7D2qLovcU4",
     channel: "Wonder",
     featured: false,
@@ -374,7 +373,7 @@ export const projects: Project[] = [
   {
     id: "highfashion",
     title: "Highfashion",
-    // Category unconfirmed: no description available; shows under "All" only.
+    category: "Brand",
     youtubeId: "lpWZik8t3lA",
     channel: "Wonder",
     featured: false,
