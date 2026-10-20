@@ -14,7 +14,6 @@ export type Category =
   | "Wedding"
   | "Event"
   | "Brand"
-  | "Music Video"
   | "Documentary";
 
 export interface Project {
@@ -182,7 +181,7 @@ export const projects: Project[] = [
   {
     id: "gaise-baba-god-is-cooking",
     title: "GOD IS COOKING… Our ALBUM is Here!!!!⚡August 14",
-    category: "Music Video",
+    category: "Brand",
     youtubeId: "3Z2rMlPUzrc",
     channel: "Gaise Baba",
     aspect: "4:3",
@@ -191,7 +190,7 @@ export const projects: Project[] = [
   {
     id: "sonship-album-reveal-neon-adejo",
     title: "SONSHIP ALBUM REVEAL NEON ADEJO",
-    category: "Music Video",
+    category: "Brand",
     youtubeId: "jQMOdeF5rrs",
     channel: "Wonder",
     featured: false,
@@ -282,7 +281,6 @@ export const categories: Category[] = [
   "Wedding",
   "Event",
   "Brand",
-  "Music Video",
   "Documentary",
 ];
 
