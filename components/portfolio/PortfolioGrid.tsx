@@ -122,13 +122,11 @@ function ProjectCard({
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
 
-          {project.category && (
-            <div className="absolute left-4 top-4">
-              <span className="border border-[#d6ad61]/30 bg-black/45 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.25em] text-[#d6ad61] backdrop-blur-md">
-                {project.category}
-              </span>
-            </div>
-          )}
+          <div className="absolute left-4 top-4">
+            <span className="border border-[#d6ad61]/30 bg-black/45 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.25em] text-[#d6ad61] backdrop-blur-md">
+              {project.category}
+            </span>
+          </div>
 
           {project.year && (
             <div className="absolute right-4 top-4">
