@@ -125,7 +125,7 @@ export default function Footer() {
             href="/contact"
             className="mt-7 inline-flex bg-[#d6ad61] px-7 py-4 text-[10px] font-bold uppercase tracking-[0.28em] text-black transition hover:bg-white"
           >
-            Book A Shoot →
+            Book Now →
           </Link>
         </div>
       </div>

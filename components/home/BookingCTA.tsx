@@ -22,7 +22,7 @@ export default function BookingCTA() {
               href="/contact"
               className="inline-flex bg-[#d6ad61] px-8 py-4 text-[10px] font-bold uppercase tracking-[0.35em] text-black transition hover:bg-white"
             >
-              Book A Shoot →
+              Book Now →
             </Link>
           </div>
         </AnimatedSection>

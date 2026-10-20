@@ -186,7 +186,7 @@ export default function Navbar() {
                   href="/contact"
                   className="inline-flex bg-[#d6ad61] px-8 py-4 text-[10px] font-bold uppercase tracking-[0.35em] text-black"
                 >
-                  Book A Shoot →
+                  Book Now →
                 </Link>
 
                 <div className="flex gap-5 text-white/60">

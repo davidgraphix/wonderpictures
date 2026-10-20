@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services } from "@/data/services";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import FilmTicker from "@/components/ui/FilmTicker";
 

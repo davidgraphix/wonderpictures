@@ -79,7 +79,7 @@ export default function Hero() {
               href="/contact"
               className="inline-flex items-center justify-center border border-white/25 px-8 py-4 text-[10px] font-bold uppercase tracking-[0.35em] text-white transition hover:border-[#d6ad61] hover:bg-[#d6ad61] hover:text-black"
             >
-              Book a Shoot
+              Book Now
             </Link>
           </motion.div>
         </div>
