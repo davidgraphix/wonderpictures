@@ -300,8 +300,16 @@ export function projectLabel(project: Project) {
 }
 
 /**
- * Autoplaying background film for the "Every Frame Tells A Story" section
- * directly beneath the hero. The client asked for it to start at 1:45.
+ * Muted, looping background film that plays behind the homepage hero copy.
+ * Deliberately different from the Featured Edit film so the two never repeat.
+ */
+export const heroBackground = {
+  youtubeId: "HppcaBZcEJI",
+} as const;
+
+/**
+ * Autoplaying background film for the "Featured Edit" ("Every Frame Tells A
+ * Story") section further down the homepage. The client asked for it to start at 1:45.
  */
 export const cinematicReel = {
   youtubeId: "YM8M5OfNUr0",
