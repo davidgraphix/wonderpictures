@@ -6,7 +6,7 @@ import BookingCTA from "@/components/home/BookingCTA";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "The person behind the lens — DT Films.",
+  description: "Crafting narratives, one frame at a time — Wonder Pictures.",
 };
 
 const AWARDS = [
@@ -14,6 +14,34 @@ const AWARDS = [
   { title: "REFTA AWARD NOMINATION — (Best documentary)", year: "2025" },
   { title: "ATEKER INTERNATIONAL FILM FESTIVAL OFFICIAL SELECTION", year: "2025" },
   { title: "AMVCA — (Best documentary)", year: "2026" },
+];
+
+const BIO_SECTIONS = [
+  {
+    heading: "My Approach",
+    paragraphs: [
+      "My work is driven by a clean, minimalist aesthetic that removes the unnecessary and allows the core story to breathe. Whether I am structuring complex narratives in Adobe Premiere Pro or refining audio and finishing touches in DaVinci Resolve, my focus remains on clarity, emotion, and impact. I approach video editing much like elegant typography—favoring timeless structure and intentional design over fleeting trends.",
+    ],
+  },
+  {
+    heading: "Selected Work",
+    paragraphs: [
+      "I have had the privilege of shaping compelling narratives across culture, music, and brand storytelling. My editing portfolio includes an AMVCA-nominated documentary, the five-part “HER” series for Zikoko Films, and the official Johnny Drille Canada Tour documentary.",
+      "I have also collaborated on the opening presentation for the Tiwa Savage Music Foundation in partnership with Berklee, crafted narrative-driven highlights for Coca-Cola at 75 Music Production, and edited the #Zeromalaria documentary. With every project, my goal is to find the wonder in the footage and translate it into an unforgettable viewer experience.",
+    ],
+  },
+  {
+    heading: "Education & Community",
+    paragraphs: [
+      "Beyond the edit bay, I am passionate about cultivating the next generation of storytellers. Influenced by the incredible mentors who have shaped my own journey, I launched the “Storytelling with Wonder” masterclass. My mission is to help emerging editors find their unique voice, master their post-production workflows, and build intentional, sustainable careers in film.",
+    ],
+  },
+  {
+    heading: "Let’s Tell Your Story",
+    paragraphs: [
+      "Whether it is an immersive documentary, a high-impact brand piece, or a compelling music visual, I am always looking for stories that matter.",
+    ],
+  },
 ];
 
 export default function AboutPage() {
@@ -28,9 +56,9 @@ export default function AboutPage() {
             className="font-display font-light text-ivory max-w-4xl"
             style={{ fontSize: "clamp(3rem, 8vw, 7rem)", lineHeight: 0.92, letterSpacing: "-0.025em" }}
           >
-            The Person
+            Crafting Narratives,
             <br />
-            Behind the Lens
+            One Frame at a Time
           </h1>
         </AnimatedSection>
       </section>
@@ -61,11 +89,25 @@ export default function AboutPage() {
 
           <AnimatedSection delay={0.1} className="space-y-5">
             <p className="text-muted text-sm leading-7">
-              I founded Wonder Pictures to bridge the gap between technical precision and raw human experience.
-              We take on select projects to ensure every frame whether
-              for a global brand or a private celebration receives the focus and high-end craft it deserves.
+              I am a professional video editor and post-production specialist deeply dedicated to the art of
+              documentary storytelling. I believe that editing is where the soul of a film is truly found—it is
+              the intentional pacing, the emotional rhythm, and the precise arrangement of audio and visuals that
+              bring a narrative to life.
             </p>
           </AnimatedSection>
+
+          {BIO_SECTIONS.map((section) => (
+            <AnimatedSection key={section.heading} delay={0.1} className="space-y-5">
+              <h3 className="text-[10px] font-mono tracking-widest3 text-gold uppercase">
+                {section.heading}
+              </h3>
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 32)} className="text-muted text-sm leading-7">
+                  {paragraph}
+                </p>
+              ))}
+            </AnimatedSection>
+          ))}
 
           {/* Signature — REPLACE with actual scanned signature image */}
           <AnimatedSection delay={0.2}>
