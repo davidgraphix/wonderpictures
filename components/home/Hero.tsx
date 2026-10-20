@@ -18,13 +18,12 @@ export default function Hero() {
       />
 
       {/* Cinematic Overlays (keep the copy readable over the moving footage) */}
-      <div className="pointer-events-none absolute inset-0 bg-black/45" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10" />
+      <div className="pointer-events-none absolute inset-0 bg-black/55" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-black/60" />
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-site items-center px-5 pt-28 md:px-10 lg:px-20">
-        <div className="max-w-4xl">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-site items-center justify-center px-5 pt-28 text-center md:px-10 lg:px-20">
+        <div className="mx-auto max-w-4xl">
 
           <motion.h1
             initial={{ opacity: 0, y: 34 }}
@@ -51,7 +50,7 @@ export default function Hero() {
               delay: 0.35,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="mt-8 max-w-lg text-sm leading-7 text-white/70 md:text-base"
+            className="mx-auto mt-8 max-w-lg text-sm leading-7 text-white/70 md:text-base"
           >
           High-end videography and expert editing for brands, creators, and unforgettable events. We craft visuals with rhythm, emotion, and precision.
           </motion.p>
@@ -64,7 +63,7 @@ export default function Hero() {
               delay: 0.55,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
           >
             <Link
               href="/portfolio"
