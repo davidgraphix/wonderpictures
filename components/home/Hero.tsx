@@ -53,7 +53,7 @@ export default function Hero() {
             }}
             className="mt-8 max-w-lg text-sm leading-7 text-white/70 md:text-base"
           >
-          High-end videography and expert post-production for brands, creators, and unforgettable events. We craft visuals with rhythm, emotion, and precision.
+          High-end videography and expert editing for brands, creators, and unforgettable events. We craft visuals with rhythm, emotion, and precision.
           </motion.p>
 
           <motion.div
