@@ -22,7 +22,7 @@ export interface Project {
   title: string;
   /** Optional cleaner label for the modal heading; never replaces `title` as the record of truth. */
   displayTitle?: string;
-  /** Omitted only while unverified; such videos appear under "All" but no category filter. */
+  /** Omitted only while unconfirmed; such videos appear under "All" but no category filter. */
   category?: Category;
   year?: number;
   location?: string;
@@ -37,10 +37,6 @@ export interface Project {
   featured: boolean;
   tagline?: string;
 }
-
-/** Placeholders for videos whose YouTube metadata has not been verified yet. */
-const PENDING_TITLE = "Title pending verification";
-const PENDING_CHANNEL = "Channel pending verification";
 
 export const projects: Project[] = [
   {
@@ -279,112 +275,108 @@ export const projects: Project[] = [
     featured: false,
     tagline: "Chinecherem's journey through clubfoot treatment, told for MiracleFeet.",
   },
-  // ---------------------------------------------------------------------------
-  // Added without YouTube metadata (oEmbed was unreachable). Title, channel and
-  // category still need to be verified on YouTube and filled in.
-  // ---------------------------------------------------------------------------
   {
-    id: "pending-B5rBrHWFJa0",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "zero-malaria-world-malaria-day-2025",
+    title: "Change The Story on World Malaria Day 2025",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "B5rBrHWFJa0",
-    channel: PENDING_CHANNEL,
+    channel: "Zero Malaria Starts with Me",
     featured: false,
   },
   {
-    id: "pending-xlULLUye5I0",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "fog-original",
+    title: "FOG ORIGINAL",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "xlULLUye5I0",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-hgBFzxRPd_4",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "sonmadeit",
+    title: "SONMADEIT",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "hgBFzxRPd_4",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-82tGNms-mr4",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "masterclass-with-winne",
+    title: "MASTERCLASS WITH WINNE",
+    category: "Event",
     youtubeId: "82tGNms-mr4",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-gw-EuCuehMk",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "bts-with-pst-iren",
+    title: "BTS WITH PST IREN",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "gw-EuCuehMk",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-u3_MDqjwNs8",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "rccg-discovery-centre-midyear-thanksgiving",
+    title: "RCCG DISCOVERY CENTRE MIDYEAR THANKSGIVING",
+    category: "Event",
     youtubeId: "u3_MDqjwNs8",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-O1bVO69DVMQ",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "interface-africa",
+    title: "interface africa",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "O1bVO69DVMQ",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-aYKaKub4tZI",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "uba-at-75-highlight",
+    title: "UBA @75 HIGHLIGHT",
+    category: "Event",
     youtubeId: "aYKaKub4tZI",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-eUV4ismY6NY",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "fujifilm-reflections-yagazie-eguare",
+    title: "\"Reflections\" Yagazie Eguare/ FUJIFILM",
+    category: "Brand",
     youtubeId: "eUV4ismY6NY",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-aoBJF0wYQTU",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "nxt-grid-documentary",
+    title: "NXT GRID Documentary",
+    category: "Documentary",
     youtubeId: "aoBJF0wYQTU",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-nU3ijgOjp88",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "shoot-edit-repeat-7-day-5",
+    title: "SHOOT EDIT REPEAT 7 [DAY 5]",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "nU3ijgOjp88",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-f7D2qLovcU4",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "jollof-and-tea",
+    title: "Jollof and Tea",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "f7D2qLovcU4",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
   {
-    id: "pending-lpWZik8t3lA",
-    title: PENDING_TITLE,
-    displayTitle: "Wonder Pictures",
+    id: "highfashion",
+    title: "Highfashion",
+    // Category unconfirmed: no description available; shows under "All" only.
     youtubeId: "lpWZik8t3lA",
-    channel: PENDING_CHANNEL,
+    channel: "Wonder",
     featured: false,
   },
 ];
