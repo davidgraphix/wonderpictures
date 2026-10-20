@@ -34,7 +34,7 @@ const brands = [
 export default function BrandsSection() {
   return (
     <section className="border-y border-white/10 bg-[#050505] py-16">
-      <div className="mx-auto max-w-7xl px-5 md:px-10">
+      <div className="mx-auto max-w-site px-5 md:px-10 2xl:px-20">
         <AnimatedSection>
           <p className="mb-10 text-center text-[11px] font-semibold uppercase tracking-[0.45em] text-[#d6ad61]">
             Trusted By Brands & Organizations

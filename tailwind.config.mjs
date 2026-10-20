@@ -23,6 +23,10 @@ const config = {
         sans:    ["var(--font-dm-sans)", "system-ui", "sans-serif"],
         mono:    ["var(--font-dm-mono)", "monospace"],
       },
+      maxWidth: {
+        /* Page container: fills wide monitors instead of a narrow centred column. */
+        site: "160rem",
+      },
       letterSpacing: {
         widest2: "0.3em",
         widest3: "0.5em",

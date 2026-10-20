@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="pt-36 pb-20 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="pt-36 pb-20 max-w-site mx-auto px-6 lg:px-12 2xl:px-20">
         <AnimatedSection>
           <span className="gold-line" />
           <p className="text-[10px] font-mono tracking-widest3 text-gold uppercase mb-4">What We Create</p>

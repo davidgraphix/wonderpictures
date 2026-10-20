@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Play } from "lucide-react";
 import { projects, type Project } from "@/data/portfolio";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import YouTubeThumbnail from "@/components/ui/YouTubeThumbnail";
+import YouTubeVideo from "@/components/ui/YouTubeVideo";
 import VideoModal from "@/components/ui/VideoModal";
 
 const featured = projects.filter((p) => p.featured).slice(0, 4);
@@ -15,7 +15,7 @@ export default function FeaturedFilms() {
 
   return (
     <section className="bg-[#050505] py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-5 md:px-10">
+      <div className="mx-auto max-w-site px-5 md:px-10 2xl:px-20">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <AnimatedSection>
             <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.45em] text-[#d6ad61]">
@@ -69,11 +69,13 @@ function FilmCard({
       className="group relative block w-full overflow-hidden border border-white/10 bg-white/[0.03] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d6ad61]"
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-black">
+        {/* Muted preview plays while the card is on screen; clicking opens the full player. */}
         <div className="absolute inset-0 scale-[1.04] transition duration-700 group-hover:scale-110">
-          <YouTubeThumbnail
+          <YouTubeVideo
             videoId={project.youtubeId}
-            alt={project.title}
-            className="absolute inset-0 h-full w-full object-cover"
+            title={project.title}
+            unloadWhenHidden
+            eagerPoster={false}
           />
         </div>
 

@@ -12,6 +12,10 @@ type YouTubeVideoProps = {
   start?: number;
   /** Extra classes for the outer wrapper (it fills its positioned parent by default). */
   className?: string;
+  /** Remove the player again once it scrolls well out of view (for grids of many videos). */
+  unloadWhenHidden?: boolean;
+  /** Load the poster immediately; set false for below-the-fold grids. */
+  eagerPoster?: boolean;
 };
 
 const PLAYING = 1;
@@ -26,19 +30,35 @@ const ENDED = 0;
  * The iframe is created when the section nears the viewport and paused while
  * it is off screen. Users who prefer reduced motion only get the poster.
  */
-export default function YouTubeVideo({ videoId, title, start, className = "" }: YouTubeVideoProps) {
+export default function YouTubeVideo({
+  videoId,
+  title,
+  start,
+  className = "",
+  unloadWhenHidden = false,
+  eagerPoster = true,
+}: YouTubeVideoProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const prefersReduced = useReducedMotion();
-  const nearView = useInView(wrapperRef, { once: true, margin: "200px" });
+  const nearView = useInView(wrapperRef, { once: !unloadWhenHidden, margin: "200px" });
   const inView = useInView(wrapperRef, { amount: 0.15 });
   const [origin, setOrigin] = useState<string>();
   const [apiReady, setApiReady] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => setOrigin(window.location.origin), []);
 
   const shouldMount = nearView && !prefersReduced && origin !== undefined;
+
+  // A fresh player is created on remount, so forget the old one's state.
+  useEffect(() => {
+    if (shouldMount) return;
+    setApiReady(false);
+    setPlaying(false);
+    setLoaded(false);
+  }, [shouldMount]);
 
   const command = useCallback((func: string, args: unknown[] = []) => {
     iframeRef.current?.contentWindow?.postMessage(
@@ -79,7 +99,6 @@ export default function YouTubeVideo({ videoId, title, start, className = "" }: 
   }, [shouldMount, start, command]);
 
   // Handshake: announce ourselves until the player answers (or ~10s pass).
-  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     if (!loaded || apiReady) return;
     let tries = 0;
@@ -122,7 +141,7 @@ export default function YouTubeVideo({ videoId, title, start, className = "" }: 
       <YouTubeThumbnail
         videoId={videoId}
         alt=""
-        eager
+        eager={eagerPoster}
         className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
           playing ? "opacity-0" : "opacity-100"
         }`}

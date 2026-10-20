@@ -50,7 +50,7 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-2 md:px-10">
+        <nav className="mx-auto flex h-20 max-w-site items-center justify-between px-2 md:px-10 2xl:px-20">
           <Link href="/">
             <div className="relative flex items-center justify-center overflow-hidden">
               <Image
