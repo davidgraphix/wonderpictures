@@ -22,7 +22,8 @@ export interface Project {
   title: string;
   /** Optional cleaner label for the modal heading; never replaces `title` as the record of truth. */
   displayTitle?: string;
-  category: Category;
+  /** Omitted only while unverified; such videos appear under "All" but no category filter. */
+  category?: Category;
   year?: number;
   location?: string;
   /** Bare 11-character YouTube video ID (no URL, no query params). */
@@ -36,6 +37,10 @@ export interface Project {
   featured: boolean;
   tagline?: string;
 }
+
+/** Placeholders for videos whose YouTube metadata has not been verified yet. */
+const PENDING_TITLE = "Title pending verification";
+const PENDING_CHANNEL = "Channel pending verification";
 
 export const projects: Project[] = [
   {
@@ -273,6 +278,90 @@ export const projects: Project[] = [
     channel: "MiracleFeet",
     featured: false,
     tagline: "Chinecherem's journey through clubfoot treatment, told for MiracleFeet.",
+  },
+  // ---------------------------------------------------------------------------
+  // Added without YouTube metadata (oEmbed was unreachable). Title, channel and
+  // category still need to be verified on YouTube and filled in.
+  // ---------------------------------------------------------------------------
+  {
+    id: "pending-B5rBrHWFJa0",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "B5rBrHWFJa0",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-xlULLUye5I0",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "xlULLUye5I0",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-hgBFzxRPd_4",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "hgBFzxRPd_4",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-82tGNms-mr4",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "82tGNms-mr4",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-gw-EuCuehMk",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "gw-EuCuehMk",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-u3_MDqjwNs8",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "u3_MDqjwNs8",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-O1bVO69DVMQ",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "O1bVO69DVMQ",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-aYKaKub4tZI",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "aYKaKub4tZI",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-eUV4ismY6NY",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "eUV4ismY6NY",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-aoBJF0wYQTU",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "aoBJF0wYQTU",
+    channel: PENDING_CHANNEL,
+    featured: false,
   },
 ];
 
