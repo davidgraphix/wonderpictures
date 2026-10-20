@@ -28,13 +28,13 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Wonder Pictures Cinematic Videography",
+    default: "Wonder Pictures Cinematic Videography/Editing",
     template: "%s | Wonder Pictures",
   },
   description:
     "Premium cinematic films for weddings, brands, and moments that deserve to live forever.",
   openGraph: {
-    siteName: "Wonder Pictures Cinematic Videography",
+    siteName: "Wonder Pictures Cinematic Videography/Editing",
     type: "website",
   },
 };

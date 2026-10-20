@@ -48,7 +48,7 @@ export default function Footer() {
           </Link>
 
           <p className="max-w-xs text-sm leading-7 text-white/55">
-            Cinematic videography for weddings, brands, and the moments that
+            Cinematic videography/editing for weddings, brands, and the moments that
             deserve to live forever.
           </p>
 
