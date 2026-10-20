@@ -371,6 +371,22 @@ export const projects: Project[] = [
     channel: PENDING_CHANNEL,
     featured: false,
   },
+  {
+    id: "pending-f7D2qLovcU4",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "f7D2qLovcU4",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
+  {
+    id: "pending-lpWZik8t3lA",
+    title: PENDING_TITLE,
+    displayTitle: "Wonder Pictures",
+    youtubeId: "lpWZik8t3lA",
+    channel: PENDING_CHANNEL,
+    featured: false,
+  },
 ];
 
 /** All portfolio categories, in display order. */
