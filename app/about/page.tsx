@@ -17,7 +17,7 @@ const AWARDS: { title: string; year?: string }[] = [
   // Year not supplied by the client yet.
   {
     title:
-      "GOLD AWARD — (The Good The Bad The Ugly) INTERNATIONAL CELEBRATION OF CINEMA, ENGLAND",
+      "GOLD AWARD FOR THE GOOD THE BAD THE UGLY AT THE INTERNATIONAL CELEBRATION OF CINEMA IN ENGLAND",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function AboutPage() {
         <AnimatedSection className="lg:sticky lg:top-28">
           <div className="relative aspect-[3/4] overflow-hidden lg:w-[min(60vh,38vw)]">
             <Image
-              src="/images/about-portrait.jpg"
+              src="/images/about-portrait-bw.jpg"
               alt="Portrait of Olaniyi Iyanuoluwa"
               fill
               priority
