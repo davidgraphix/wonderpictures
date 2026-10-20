@@ -17,7 +17,7 @@ const AWARDS: { title: string; year?: string }[] = [
   // Year not supplied by the client yet.
   {
     title:
-      "GOLD AWARD — (The Good The Bad The Ugly) INTERNATIONAL CELEBRATION OF CINEMA, ENGLAND",
+      "GOLD AWARD FOR THE GOOD THE BAD THE UGLY AT THE INTERNATIONAL CELEBRATION OF CINEMA IN ENGLAND",
   },
 ];
 
