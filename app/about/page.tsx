@@ -74,7 +74,7 @@ export default function AboutPage() {
         <AnimatedSection className="lg:sticky lg:top-28">
           <div className="relative aspect-[3/4] overflow-hidden lg:w-[min(60vh,38vw)]">
             <Image
-              src="/images/about-portrait.jpg"
+              src="/images/about-portrait-bw.jpg"
               alt="Portrait of Olaniyi Iyanuoluwa"
               fill
               priority
