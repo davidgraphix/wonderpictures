@@ -120,7 +120,7 @@ function ProjectCard({
             />
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
 
           <div className="absolute left-4 top-4">
             <span className="border border-[#d6ad61]/30 bg-black/45 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.25em] text-[#d6ad61] backdrop-blur-md">
@@ -128,33 +128,19 @@ function ProjectCard({
             </span>
           </div>
 
-          <div className="absolute right-4 top-4">
-            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/60">
-              {project.year}
-            </span>
-          </div>
+          {project.year && (
+            <div className="absolute right-4 top-4">
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/60">
+                {project.year}
+              </span>
+            </div>
+          )}
 
           <div className="absolute inset-0 flex items-center justify-center opacity-70 transition duration-500 group-hover:opacity-100 md:opacity-0 md:group-focus-visible:opacity-100">
             <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/45 bg-black/35 text-white backdrop-blur-md transition group-hover:scale-110 group-hover:border-[#d6ad61]">
               <span className="ml-1 text-sm">▶</span>
             </div>
           </div>
-        </div>
-
-        <div className="p-5 md:p-6">
-          <h3 className="font-serif text-2xl font-light tracking-[-0.03em] text-[#f5efe4] transition group-hover:text-[#d6ad61] md:text-3xl">
-            {project.title}
-          </h3>
-
-          {project.location && (
-            <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
-              {project.location}
-            </p>
-          )}
-
-          <p className="mt-4 line-clamp-2 text-sm leading-6 text-white/55">
-            {project.tagline}
-          </p>
         </div>
       </button>
     </article>

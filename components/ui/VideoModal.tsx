@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import type { Project } from "@/data/portfolio";
-import { youtubePlayerEmbed, youtubeWatchUrl } from "@/lib/youtube";
+import { projectLabel, type Project } from "@/data/portfolio";
+import { youtubePlayerEmbed, youtubePlaylistUrl, youtubeWatchUrl } from "@/lib/youtube";
 
 type Props = {
   project: Project | null;
@@ -64,13 +64,13 @@ export default function VideoModal({ project, onClose }: Props) {
             <div className="mb-4 flex items-start justify-between gap-6">
               <div className="min-w-0">
                 <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.35em] text-[#d6ad61]">
-                  {project.category} · {project.year}
+                  {project.category}{project.year ? ` · ${project.year}` : ""}
                 </p>
                 <h2
                   id="video-modal-title"
                   className="font-serif text-2xl font-light leading-tight tracking-[-0.03em] text-[#f5efe4] md:text-4xl"
                 >
-                  {project.title}
+                  {projectLabel(project)}
                 </h2>
               </div>
 
@@ -96,14 +96,26 @@ export default function VideoModal({ project, onClose }: Props) {
               />
             </div>
 
-            <a
-              href={youtubeWatchUrl(project.youtubeId)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 transition hover:text-[#d6ad61]"
-            >
-              Watch on YouTube →
-            </a>
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+              <a
+                href={youtubeWatchUrl(project.youtubeId)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 transition hover:text-[#d6ad61]"
+              >
+                Watch on YouTube →
+              </a>
+              {project.playlistId && (
+                <a
+                  href={youtubePlaylistUrl(project.playlistId)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 transition hover:text-[#d6ad61]"
+                >
+                  Watch the full series →
+                </a>
+              )}
+            </div>
           </motion.div>
         </motion.div>
       )}

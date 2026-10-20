@@ -86,18 +86,16 @@ function FilmCard({
         </div>
 
         <div className="absolute bottom-0 left-0 w-full p-4">
-          <h3 className="mb-2 line-clamp-2 text-sm font-bold uppercase tracking-[0.08em] text-white">
-            {project.title}
-          </h3>
-
           <div className="flex items-center justify-between border-t border-white/20 pt-3">
             <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-white/70">
               {project.category}
             </p>
 
-            <p className="text-[9px] font-bold text-white/70">
-              {project.year}
-            </p>
+            {project.year && (
+              <p className="text-[9px] font-bold text-white/70">
+                {project.year}
+              </p>
+            )}
           </div>
         </div>
       </div>
