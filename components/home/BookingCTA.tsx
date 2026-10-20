@@ -7,7 +7,7 @@ export default function BookingCTA() {
       <div className="absolute inset-0 bg-[url('/images/booking-bg.jpg')] bg-cover bg-center opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
 
-      <div className="relative z-10 mx-auto flex min-h-[420px] max-w-7xl items-center px-5 py-20 md:px-10">
+      <div className="relative z-10 mx-auto flex min-h-[420px] max-w-site items-center px-5 py-20 md:px-10 2xl:px-20">
         <AnimatedSection>
           <h2 className="max-w-2xl font-serif text-4xl font-light leading-[1] tracking-[-0.04em] text-[#f5efe4] md:text-6xl">
             Ready To Tell <br /> Your Story?

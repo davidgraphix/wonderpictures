@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects, activeCategories, type Category, type Project } from "@/data/portfolio";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import YouTubeThumbnail from "@/components/ui/YouTubeThumbnail";
+import YouTubeVideo from "@/components/ui/YouTubeVideo";
 import VideoModal from "@/components/ui/VideoModal";
 
 export default function PortfolioGrid() {
@@ -15,7 +15,7 @@ export default function PortfolioGrid() {
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section className="mx-auto max-w-7xl px-5 pb-24 pt-36 md:px-10 md:pb-32">
+    <section className="mx-auto max-w-site px-5 pb-24 pt-36 md:px-10 md:pb-32 2xl:px-20">
       <AnimatedSection className="mb-14">
         <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.45em] text-[#d6ad61]">
           All Films
@@ -82,8 +82,17 @@ function getGridSpan(index: number) {
     "lg:col-span-6",
     "lg:col-span-6",
   ];
+  // Wide screens: two landscape cards, then a row of four portrait cards.
+  const widePattern = [
+    "2xl:col-span-6",
+    "2xl:col-span-6",
+    "2xl:col-span-3",
+    "2xl:col-span-3",
+    "2xl:col-span-3",
+    "2xl:col-span-3",
+  ];
 
-  return pattern[index % pattern.length];
+  return `${pattern[index % pattern.length]} ${widePattern[index % widePattern.length]}`;
 }
 
 function ProjectCard({
@@ -95,9 +104,17 @@ function ProjectCard({
   index: number;
   onPlay: (project: Project) => void;
 }) {
+  // Large (landscape) slots follow getGridSpan: 7-card pattern up to 2xl, 6-card pattern above.
   const isLarge = index % 7 === 0 || index % 7 === 1;
+  const isWideLarge = index % 6 === 0 || index % 6 === 1;
+  const aspect = `${isLarge ? "aspect-[16/10]" : "aspect-[4/5]"} ${
+    isWideLarge ? "2xl:aspect-[16/10]" : "2xl:aspect-[4/5]"
+  }`;
   // Landscape cards would reveal the pillarbox bars baked into 4:3 thumbnails.
-  const zoom = isLarge && project.aspect === "4:3" ? "scale-[1.4]" : "scale-[1.04]";
+  const is43 = project.aspect === "4:3";
+  const zoom = `${is43 && isLarge ? "scale-[1.4]" : "scale-[1.04]"} ${
+    is43 && isWideLarge ? "2xl:scale-[1.4]" : "2xl:scale-[1.04]"
+  }`;
 
   return (
     <article className="overflow-hidden border border-white/10 bg-white/[0.03]">
@@ -107,16 +124,14 @@ function ProjectCard({
         aria-label={`Play ${project.title}`}
         className="group block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#d6ad61]"
       >
-        <div
-          className={`relative overflow-hidden bg-black ${
-            isLarge ? "aspect-[16/10]" : "aspect-[4/5]"
-          }`}
-        >
+        <div className={`relative overflow-hidden bg-black ${aspect}`}>
+          {/* Muted preview plays while the card is on screen; clicking opens the full player. */}
           <div className={`absolute inset-0 transition duration-700 group-hover:brightness-110 ${zoom}`}>
-            <YouTubeThumbnail
+            <YouTubeVideo
               videoId={project.youtubeId}
-              alt={project.title}
-              className="absolute inset-0 h-full w-full object-cover"
+              title={project.title}
+              unloadWhenHidden
+              eagerPoster={false}
             />
           </div>
 

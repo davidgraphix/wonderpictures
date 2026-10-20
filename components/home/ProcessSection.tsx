@@ -31,7 +31,7 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="bg-[#050505] py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-5 md:px-10">
+      <div className="mx-auto max-w-site px-5 md:px-10 2xl:px-20">
         <AnimatedSection className="mb-14">
           <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.45em] text-[#d6ad61]">
             Our Process

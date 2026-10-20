@@ -9,11 +9,16 @@ export const metadata: Metadata = {
   description: "Crafting narratives, one frame at a time — Wonder Pictures.",
 };
 
-const AWARDS = [
+const AWARDS: { title: string; year?: string }[] = [
   { title: "AFRIFF AWARD NOMINATION — (Best documentary)", year: "2025" },
   { title: "REFTA AWARD NOMINATION — (Best documentary)", year: "2025" },
   { title: "ATEKER INTERNATIONAL FILM FESTIVAL OFFICIAL SELECTION", year: "2025" },
   { title: "AMVCA — (Best documentary)", year: "2026" },
+  // Year not supplied by the client yet.
+  {
+    title:
+      "GOLD AWARD — (The Good The Bad The Ugly) INTERNATIONAL CELEBRATION OF CINEMA, ENGLAND",
+  },
 ];
 
 const BIO_SECTIONS = [
@@ -48,7 +53,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-36 pb-20 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="pt-36 pb-20 max-w-site mx-auto px-6 lg:px-12 2xl:px-20">
         <AnimatedSection>
           <span className="gold-line" />
           <p className="text-[10px] font-mono tracking-widest3 text-gold uppercase mb-4">About</p>
@@ -64,22 +69,23 @@ export default function AboutPage() {
       </section>
 
       {/* Split: photo + bio */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-28 grid grid-cols-1 lg:grid-cols-[1fr,1.2fr] gap-16 items-start">
-        <AnimatedSection>
-          <div className="relative aspect-[3/4] overflow-hidden">
+      <section className="max-w-site mx-auto px-6 lg:px-12 2xl:px-20 pb-28 grid grid-cols-1 lg:grid-cols-[auto,minmax(0,1fr)] gap-16 2xl:gap-24 items-start">
+        {/* Sized to the viewport height and sticky, so it stays in view beside the long bio. */}
+        <AnimatedSection className="lg:sticky lg:top-28">
+          <div className="relative aspect-[3/4] overflow-hidden lg:w-[min(60vh,38vw)]">
             <Image
               src="/images/about-portrait.jpg"
               alt="Portrait of Olaniyi Iyanuoluwa"
               fill
               priority
-              sizes="(min-width: 1024px) 40vw, 100vw"
+              sizes="(min-width: 1024px) 38vw, 100vw"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 to-transparent" />
           </div>
         </AnimatedSection>
 
-        <div className="lg:pt-10 space-y-8">
+        <div className="lg:pt-10 space-y-8 max-w-4xl">
           <AnimatedSection>
             <h2 className="font-display font-light text-ivory text-5xl md:text-6xl">
               OLANIYI IYANUOLUWA
@@ -90,7 +96,7 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className="space-y-5">
-            <p className="text-muted text-sm leading-7">
+            <p className="text-muted text-sm leading-7 2xl:text-base 2xl:leading-8">
               I am a professional video editor and post-production specialist deeply dedicated to the art of
               documentary storytelling. I believe that editing is where the soul of a film is truly found—it is
               the intentional pacing, the emotional rhythm, and the precise arrangement of audio and visuals that
@@ -104,7 +110,7 @@ export default function AboutPage() {
                 {section.heading}
               </h3>
               {section.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)} className="text-muted text-sm leading-7">
+                <p key={paragraph.slice(0, 32)} className="text-muted text-sm leading-7 2xl:text-base 2xl:leading-8">
                   {paragraph}
                 </p>
               ))}
@@ -126,7 +132,9 @@ export default function AboutPage() {
                 {AWARDS.map((a) => (
                   <li key={a.title} className="flex items-baseline justify-between gap-4">
                     <span className="text-sm text-ivory">{a.title}</span>
-                    <span className="text-xs font-mono text-muted flex-shrink-0">{a.year}</span>
+                    {a.year && (
+                      <span className="text-xs font-mono text-muted flex-shrink-0">{a.year}</span>
+                    )}
                   </li>
                 ))}
               </ul>

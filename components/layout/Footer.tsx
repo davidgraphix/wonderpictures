@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-[#050505] text-white">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-14 md:grid-cols-[1.3fr_0.8fr_1fr_1.1fr] md:px-10">
+      <div className="mx-auto grid max-w-site gap-12 px-5 py-14 md:grid-cols-[1.3fr_0.8fr_1fr_1.1fr] md:px-10 2xl:px-20">
         <div>
           <Link href="/" className="mb-5 flex items-center gap-3">
             <div className="relative h-12 w-12">
