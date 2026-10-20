@@ -1,9 +1,13 @@
 /**
  * Single source of truth for every YouTube video shown on the site.
  *
- * Titles are the exact titles published on YouTube (verified via oEmbed).
- * Years are the YouTube publish year. Locations are only set where they are
- * known; cards hide the location line when it is missing.
+ * `title` is the exact title published on YouTube (verified via oEmbed) and is
+ * used for accessible labels and the video modal. Portfolio cards do not show
+ * titles. `displayTitle` is an optional presentation label used only where the
+ * YouTube title contains an obvious upload artefact.
+ *
+ * Years and locations are only set where they were verified; cards hide them
+ * when missing.
  */
 
 export type Category =
@@ -17,47 +21,72 @@ export interface Project {
   id: string;
   /** Exact YouTube title. */
   title: string;
+  /** Optional cleaner label for the modal heading; never replaces `title` as the record of truth. */
+  displayTitle?: string;
   category: Category;
-  year: number;
+  year?: number;
   location?: string;
   /** Bare 11-character YouTube video ID (no URL, no query params). */
   youtubeId: string;
+  /** YouTube channel that published the video. */
+  channel: string;
   /** Source aspect ratio. 4:3 videos get extra crop so pillarbox bars stay hidden. */
   aspect?: "16:9" | "4:3";
+  /** Related YouTube playlist (e.g. the full series an episode belongs to). */
+  playlistId?: string;
   featured: boolean;
-  tagline: string;
+  tagline?: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "funmbi-michael-wedding",
-    title: "Funmbi & Michael 5min highlight",
+    id: "zikoko-her-bawsty-clothing",
+    title: "How Morenike Olusanya Built Bawsty Clothing into a Bold Fashion Brand | Zikoko Her",
+    category: "Documentary",
+    youtubeId: "YM8M5OfNUr0",
+    channel: "Zikoko",
+    featured: false,
+  },
+  {
+    id: "bamboo-for-all-chioma",
+    title: "BAMBOO FOR ALL - CHIOMA",
+    category: "Brand",
+    youtubeId: "wUXUp1hBYG8",
+    channel: "Wonder",
+    featured: true,
+  },
+  {
+    id: "coca-cola-at-75-bts",
+    title: "Coca cola at 75 Music production Bts",
+    category: "Brand",
+    youtubeId: "KIw-1IblhNI",
+    channel: "Wonder",
+    aspect: "4:3",
+    featured: true,
+  },
+  {
+    id: "lewis-leeanne-wedding",
+    title: "LEWIS & LEEANNE WEDDING FILM HIGHLIGHT",
     category: "Wedding",
-    year: 2026,
-    youtubeId: "FxOFg3aFHuo",
-    aspect: "4:3",
+    youtubeId: "HppcaBZcEJI",
+    channel: "Wonder",
     featured: true,
-    tagline: "A five-minute wedding highlight film for Funmbi and Michael.",
   },
   {
-    id: "benjay-at-90",
-    title: "BENJAY AT 90 highlight",
-    category: "Event",
-    year: 2026,
-    location: "Lagos, Nigeria",
-    youtubeId: "pDRWlRCcSFc",
-    aspect: "4:3",
+    id: "is-it-your-money-teaser",
+    title: "Is It Your Money? | Chude Jideonwo's Big Budget Docu-series on Diezani Alison-Madueke | Teaser",
+    category: "Documentary",
+    youtubeId: "RkcNuyOBYtM",
+    channel: "What Kept Me Up",
     featured: true,
-    tagline: "Highlights from Benjay's 90th celebration.",
   },
   {
-    id: "take-it-all-conference-2026",
-    title: "Take it all Business Conference 2026",
-    category: "Event",
-    year: 2026,
-    youtubeId: "cLQlibR7tb8",
-    featured: true,
-    tagline: "Event highlights from the Take It All Business Conference 2026.",
+    id: "buhler-afcott-customer-story",
+    title: "Bühler West Africa: Sesame Processing in Nigeria | AFCOTT Customer Story",
+    category: "Brand",
+    youtubeId: "YIGPcO5LSBk",
+    channel: "Bühler Group",
+    featured: false,
   },
   {
     id: "unicef-sida-bayelsa-flood-response",
@@ -66,18 +95,44 @@ export const projects: Project[] = [
     year: 2026,
     location: "Bayelsa, Nigeria",
     youtubeId: "rDbWQzcKO5o",
-    featured: true,
+    channel: "Wonder",
+    featured: false,
     tagline: "Documenting UNICEF and SIDA's flood response in Bayelsa State.",
   },
   {
-    id: "enya-fashion-docu",
-    title: "ENYA fashion Docu",
+    id: "daniel-vs-ekweremadu-teaser",
+    title: "Chude Jideonwo’s New Docu-Series “Daniel vs Ekweremadu – The Battle Over One Man’s Kidney” Teaser",
     category: "Documentary",
-    year: 2026,
-    location: "Lagos, Nigeria",
-    youtubeId: "UnPtJg9d_lM",
+    youtubeId: "23EtXLYZtTk",
+    channel: "Prime Drift TV",
     featured: false,
-    tagline: "A fashion documentary telling the story behind ENYA.",
+  },
+  {
+    id: "afrobeat-exposed-trailer",
+    title: "Afrobeat Exposed: The Good The Bad and The Ugly Official Documentary Trailer. #CynthiaMorgan",
+    category: "Documentary",
+    youtubeId: "J5BcbBuKldU",
+    channel: "District Media Company",
+    featured: false,
+  },
+  {
+    id: "funmbi-michael-wedding",
+    title: "Funmbi & Michael 5min highlight",
+    category: "Wedding",
+    year: 2026,
+    youtubeId: "FxOFg3aFHuo",
+    channel: "Wonder",
+    aspect: "4:3",
+    featured: false,
+    tagline: "A five-minute wedding highlight film for Funmbi and Michael.",
+  },
+  {
+    id: "hallelujah-challenge-story-ep1",
+    title: "THE HALLELUJAH CHALLENGE STORY - EPISODE 1",
+    category: "Documentary",
+    youtubeId: "SM6EJabBE7w",
+    channel: "Nathaniel Bassey Main",
+    featured: false,
   },
   {
     id: "johnny-drille-touring-canada",
@@ -86,15 +141,126 @@ export const projects: Project[] = [
     year: 2026,
     location: "Canada",
     youtubeId: "YtwpcI4GR_I",
+    channel: "Johnny Drille",
     featured: false,
     tagline: "Following Johnny Drille on tour across Canada.",
   },
   {
+    id: "zikoko-her-yerwa-secrets",
+    title: "How Fatima Babakura Built Yerwa Secrets into a Growing Beauty Brand | Zikoko Her",
+    category: "Documentary",
+    youtubeId: "vSkr2Dyento",
+    channel: "Zikoko",
+    featured: false,
+  },
+  {
+    id: "oraimo-x-niphykeys",
+    title: "ORIAMO X NIPHYKEYS",
+    category: "Brand",
+    youtubeId: "f2w7pLkixP4",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
+    id: "wheatbaker",
+    title: "WHEATBAKER",
+    category: "Brand",
+    youtubeId: "YLbi2Iw05to",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
+    id: "she-rises-audrey-joe-ezigbo",
+    title: "AUDREY JOE-EZIGBO TALKS ON BALANCING FAMILY, PURPOSE AND FAITH | SHE RISES",
+    category: "Documentary",
+    youtubeId: "JO4IwtmCcuQ",
+    channel: "Gazmadu",
+    // "SHE RISES 2026" — the full series this episode belongs to.
+    playlistId: "PLLuGs1_kH2t2GbOvV24nuD0qGxRyTuEOG",
+    featured: false,
+  },
+  {
+    id: "gaise-baba-god-is-cooking",
+    title: "GOD IS COOKING… Our ALBUM is Here!!!!⚡August 14",
+    category: "Music Video",
+    youtubeId: "3Z2rMlPUzrc",
+    channel: "Gaise Baba",
+    aspect: "4:3",
+    featured: false,
+  },
+  {
+    id: "sonship-album-reveal-neon-adejo",
+    title: "SONSHIP ALBUM REVEAL NEON ADEJO",
+    category: "Music Video",
+    youtubeId: "jQMOdeF5rrs",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
+    id: "enya-fashion-docu",
+    title: "ENYA fashion Docu",
+    category: "Documentary",
+    year: 2026,
+    location: "Lagos, Nigeria",
+    youtubeId: "UnPtJg9d_lM",
+    channel: "Wonder",
+    featured: false,
+    tagline: "A fashion documentary telling the story behind ENYA.",
+  },
+  {
+    id: "nxtcon24-film",
+    title: "NXTCON24 FILM",
+    category: "Event",
+    youtubeId: "fZMaJXu3nHI",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
+    id: "benjay-at-90",
+    title: "BENJAY AT 90 highlight",
+    category: "Event",
+    year: 2026,
+    location: "Lagos, Nigeria",
+    youtubeId: "pDRWlRCcSFc",
+    channel: "Wonder",
+    aspect: "4:3",
+    featured: false,
+    tagline: "Highlights from Benjay's 90th celebration.",
+  },
+  {
+    id: "take-it-all-conference-2026",
+    title: "Take it all Business Conference 2026",
+    category: "Event",
+    year: 2026,
+    youtubeId: "cLQlibR7tb8",
+    channel: "Wonder",
+    featured: false,
+    tagline: "Event highlights from the Take It All Business Conference 2026.",
+  },
+  {
+    id: "nbc-2026-day-event",
+    title: "NBC 2026 Day event",
+    category: "Event",
+    youtubeId: "WW9lmgRh6OU",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
+    id: "tsmf-grand-finale",
+    title: "TSMF Grand finale",
+    category: "Event",
+    youtubeId: "WR4PwEznkig",
+    channel: "Wonder",
+    featured: false,
+  },
+  {
     id: "international-breweries-agm",
     title: "1 minute highlight AGM international breweriesmp4",
+    displayTitle: "International Breweries AGM — 1 Minute Highlight",
     category: "Event",
     year: 2026,
     youtubeId: "tDlnj_rKVZs",
+    channel: "Wonder",
     featured: false,
     tagline: "A one-minute highlight from the International Breweries AGM.",
   },
@@ -105,6 +271,7 @@ export const projects: Project[] = [
     year: 2023,
     location: "Lagos, Nigeria",
     youtubeId: "sqFskhIfA6E",
+    channel: "MiracleFeet",
     featured: false,
     tagline: "Chinecherem's journey through clubfoot treatment, told for MiracleFeet.",
   },
@@ -128,8 +295,15 @@ export function getProject(youtubeId: string): Project | undefined {
   return projects.find((p) => p.youtubeId === youtubeId);
 }
 
-/** Muted looping film shown directly beneath the homepage hero. */
-export const heroLoopVideoId = "tDlnj_rKVZs";
+export function projectLabel(project: Project) {
+  return project.displayTitle ?? project.title;
+}
 
-/** Background film for the "Every Frame Tells A Story" homepage reel. */
-export const cinematicReelVideoId = "UnPtJg9d_lM";
+/**
+ * Autoplaying background film for the "Every Frame Tells A Story" section
+ * directly beneath the hero. The client asked for it to start at 1:45.
+ */
+export const cinematicReel = {
+  youtubeId: "YM8M5OfNUr0",
+  startSeconds: 105,
+} as const;

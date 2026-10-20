@@ -9,6 +9,8 @@ type Props = {
   videoId: string;
   alt: string;
   className?: string;
+  /** Load immediately instead of lazily (for above-the-fold posters). */
+  eager?: boolean;
 };
 
 /**
@@ -16,7 +18,7 @@ type Props = {
  * first, steps down when a size is missing, and finally shows a branded
  * placeholder so the card never renders a broken image.
  */
-export default function YouTubeThumbnail({ videoId, alt, className = "" }: Props) {
+export default function YouTubeThumbnail({ videoId, alt, className = "", eager = false }: Props) {
   const [step, setStep] = useState(0);
   const failed = step >= FALLBACK_CHAIN.length;
 
@@ -37,7 +39,7 @@ export default function YouTubeThumbnail({ videoId, alt, className = "" }: Props
     <img
       src={youtubeThumbnail(videoId, FALLBACK_CHAIN[step])}
       alt={alt}
-      loading="lazy"
+      loading={eager ? "eager" : "lazy"}
       decoding="async"
       className={className}
       onLoad={(e) => {

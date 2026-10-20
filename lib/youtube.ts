@@ -12,7 +12,10 @@ export function youtubeWatchUrl(videoId: string) {
 }
 
 /** Muted, looping, chrome-less embed for ambient background playback. */
-export function youtubeBackgroundEmbed(videoId: string) {
+export function youtubeBackgroundEmbed(
+  videoId: string,
+  { start, origin }: { start?: number; origin?: string } = {},
+) {
   const params = new URLSearchParams({
     autoplay: "1",
     mute: "1",
@@ -28,7 +31,14 @@ export function youtubeBackgroundEmbed(videoId: string) {
     playsinline: "1",
     enablejsapi: "1",
   });
+  if (start) params.set("start", String(start));
+  // Lets the IFrame API post playback state back to this page.
+  if (origin) params.set("origin", origin);
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
+}
+
+export function youtubePlaylistUrl(playlistId: string) {
+  return `https://www.youtube.com/playlist?list=${playlistId}`;
 }
 
 /** Full player with controls and sound, opened on user click. */

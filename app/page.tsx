@@ -1,5 +1,4 @@
 import Hero from "@/components/home/Hero";
-import HeroReel from "@/components/home/HeroReel";
 import FeaturedFilms from "@/components/home/FeaturedFilms";
 import FilmTicker from "@/components/ui/FilmTicker";
 import Storytelling from "@/components/home/Storytelling";
@@ -14,12 +13,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <HeroReel />
+      <CinematicReel />
       <BrandsSection />
       <FeaturedFilms />
       <FilmTicker />
       {/* <Storytelling /> */}
-      <CinematicReel />
       <FilmTicker reverse speed="fast" />
       <ServicesSection />
       <ProcessSection />
